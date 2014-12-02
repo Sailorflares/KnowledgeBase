@@ -4,17 +4,13 @@ class NprApi
 
   attr_reader :url, :json
 
-  def initialize(search_terms)
-    @url = create_query_url(search_terms)
+  def initialize(search_term)
+    @url = create_query_url(search_term)
     @json = get_json
   end
 
-  def create_query_url(search_terms)
-    url = "http://api.npr.org/query?output=JSON" 
-    search_terms.each do |term|
-      url + "&searchTerm=#{term}"
-    end
-    return url + "&apiKey=MDE3NTg1OTAzMDE0MTc0NjU3MDZhZTk4Yw001"
+  def create_query_url(search_term)
+    "http://api.npr.org/query?output=JSON&searchTerm=#{search_term}&apiKey=MDE3NTg1OTAzMDE0MTc0NjU3MDZhZTk4Yw001"
   end
 
   def get_json
