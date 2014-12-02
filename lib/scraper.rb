@@ -1,4 +1,8 @@
+require 'open-uri'
+
 class Scraper
+
+	attr_reader :doc
 	
 	def initialize(topic)
 		url = "http://en.wikipedia.org/wiki/#{topic}"
