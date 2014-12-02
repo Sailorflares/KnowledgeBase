@@ -34,6 +34,8 @@ gem 'json'
 
 gem "binding_of_caller"
 
+gem 'nori'
+
 group :development do
   gem "better_errors"
 end
