@@ -17,6 +17,10 @@ class NprApi
     JSON.load(open(url))
   end
 
+  def stories_array
+    get_json["list"]["story"]
+  end
+
   def links_array
     array = []
     get_json["list"]["story"].each do |story_hash|

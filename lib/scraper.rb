@@ -10,7 +10,6 @@ class Scraper
 		@doc = Nokogiri::HTML(open(url))
 	end
 
-
 	def parse
 		results = Hash.new
 		@doc.css('div.toc ul li').each do |li|
