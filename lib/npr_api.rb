@@ -1,4 +1,5 @@
 require 'open-uri'
+require 'nori'
 
 class NprApi
 
@@ -14,11 +15,12 @@ class NprApi
   end
 
   def get_xml
-    Nokogiri::XML(open(url))
+    Nokogiri::XML(open(url)).to_xml
   end
 
   def links_array
-    Nori.parse(get_xml)
+    parser = Nori.new
+    parser.parse(get_xml)
   end
   
 end
