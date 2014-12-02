@@ -10,14 +10,14 @@ class Scraper
 		@doc = Nokogiri::HTML(open(url))
 	end
 
-	def parse
+	def parse_to_html
 		results = Hash.new
 		@doc.css('div.toc ul li').each do |li|
 			number = li.css(".tocnumber").first.text.to_f
 			text = li.css(".toctext").first.text	
-			results[number]=text
+			results[text]=number
 		end
-		results
+		results.to_s
 	end
 end
 
