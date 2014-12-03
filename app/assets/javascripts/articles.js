@@ -159,13 +159,19 @@ $(document).ready(function(){
 	}
 
 
-	// Watch for clicks on nodes
+	// Watch for clicks on nodes to populate div
 
 	$("svg").on("click", "g.node", function(){
 		$("div#clicked-node").html($(this).children().last().text())
+		$(this).children().first().attr("r", "7")
+		$(this).children().first().attr("style", "fill: RGB(255, 204, 0);")
 	})
 
+	//watch for click on the submit to send request to topics controller
 
-
+	$("button#topic-submit").click(function(){
+		url = $(this).attr("href") + $("div#clicked-node").text().toLowerCase()
+		$(location).attr('href',url);
+	})
 
 })
