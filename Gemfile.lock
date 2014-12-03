@@ -51,6 +51,9 @@ GEM
     erubis (2.7.0)
     execjs (2.2.2)
     fast-stemmer (1.0.2)
+    figaro (0.7.0)
+      bundler (~> 1.0)
+      rails (>= 3, < 5)
     hike (1.2.3)
     i18n (0.6.11)
     jbuilder (2.2.5)
@@ -136,6 +139,7 @@ DEPENDENCIES
   classifier
   coffee-rails (~> 4.0.0)
   d3-rails
+  figaro
   jbuilder (~> 2.0)
   jquery-rails
   json
