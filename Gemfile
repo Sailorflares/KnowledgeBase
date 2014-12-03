@@ -36,7 +36,11 @@ gem "binding_of_caller"
 
 gem 'nori'
 
+<<<<<<< HEAD
 gem 'classifier'
+=======
+gem "d3-rails"
+>>>>>>> 5cb6547b782b308408203562919c1c1cce83f846
 
 group :development do
   gem "better_errors"

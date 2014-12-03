@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   
   root 'articles#show'
   post 'wiki_scrape' => 'articles#wiki_scrape'
+  get 'd3' => "articles#d3"
 
 
 
