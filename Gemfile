@@ -36,6 +36,8 @@ gem "binding_of_caller"
 
 gem 'nori'
 
+gem 'classifier'
+
 group :development do
   gem "better_errors"
 end

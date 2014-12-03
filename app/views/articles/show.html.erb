@@ -17,8 +17,10 @@
     <div class="col-xs-6 col-md-3">
       <a href="<%=story["link"].first["$text"]%>" class="thumbnail">
         <% unless story["thumbnail"].nil? %>
-          <img src="<%=story["thumbnail"]["medium"]["$text"]%>" alt="...">
-        <% end %>
+          <img src="<%=story["thumbnail"]["medium"]["$text"]%>" alt="<%=story["title"]%>">
+        <% end %>  
+          <%=story["title"]["$text"]%>
+        
       </a>
     </div><br>
   <% end %>
