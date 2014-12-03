@@ -10,7 +10,7 @@ class NprApi
   end
 
   def create_query_url(search_term)
-    "http://api.npr.org/query?output=JSON&searchTerm=#{search_term}&apiKey=MDE3NTg1OTAzMDE0MTc0NjU3MDZhZTk4Yw001"
+    "http://api.npr.org/query?output=JSON&searchTerm=#{search_term}&apiKey=#{ENV['NPR_KEY']}"
   end
 
   def get_json

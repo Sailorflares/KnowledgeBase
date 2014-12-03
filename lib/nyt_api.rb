@@ -10,7 +10,7 @@ class NytApi
   end
 
   def create_query_url(search_term)
-    "http://api.nytimes.com/svc/search/v2/articlesearch.json?q=#{search_term}&api-key=1a7b0ee104b10dc6baaa5e59392a0b17:8:70267967"
+    "http://api.nytimes.com/svc/search/v2/articlesearch.json?q=#{search_term}&api-key=#{ENV['NYT_KEY']}"
   end
 
   def get_json

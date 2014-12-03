@@ -40,6 +40,8 @@ gem 'classifier'
 
 gem "d3-rails"
 
+gem 'figaro'
+
 group :development do
   gem "better_errors"
 end
