@@ -1,4 +1,5 @@
 <h1><%=@topic%></h1>
+<h2>NPR Results</h2>
 <div class="row">
   <%  NprApi.new(@topic).stories_array.each do |story| %>
     <div class="col-xs-6 col-md-3">
@@ -11,3 +12,16 @@
     </div><br>
   <% end %>
 </div> 
+<h2>New York Times Results</h2>
+<% NytApi.new(@topic).stories_array.each do |story| %>
+  <div class="col-xs-6 col-md-3">
+    <a href="<%=story["web_url"]%>" class="thumbnail">
+      <% unless story["multimedia"].first.nil? %>
+        <img src=<%="http://static01.nyt.com/" + story["multimedia"].first["url"]%> alt="<%=story["headline"]["main"]%>">
+      <% end %>  
+        <%=story["headline"]["main"]%>    
+    </a>
+  </div><br>
+<% end %>
+
+<h2>Good Reads Results</h2>
