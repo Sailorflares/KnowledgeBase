@@ -1,10 +1,11 @@
 
-<%= form_tag("/wiki_scrape", id:"article-topic") do %>
-  <%= label_tag(:topic, "Search for:") %>
-  <%= text_field_tag(:topic) %>
-  <%= submit_tag("Search") %>
-<% end %>
+
 <br>	
+
+<div id="clicked-node">
+Search for a new topic
+</div>
+<button type="button" id="topic-submit" class="btn btn-default" href='/topic?topic='>Search</button>
 
 <div id="chart">
 </div>
@@ -21,6 +22,9 @@
       var searched = $("input:text").val();
       var articles = $.getJSON("http://api.npr.org/query?", { output: "JSON", searchTerm: searched, apiKey: "MDE3NTg1OTAzMDE0MTc0NjU3MDZhZTk4Yw001"});
       $("body").append();
+
+
+
     });
   });
 </script>
