@@ -25,3 +25,11 @@
 <% end %>
 
 <h2>Good Reads Results</h2>
+<% GoodReadsApi.new(@topic).stories_array.each do |story| %>
+  <div class="col-xs-6 col-md-3">
+    <a href="https://www.goodreads.com/book/show/<%=story['best_book']['id']%>" class="thumbnail">
+        <img src=<%=story["best_book"]["image_url"]%> alt="<%=story["best_book"]["title"]%>">
+        <%=story["best_book"]["title"]%>
+    </a>
+  </div><br>
+<% end %>
