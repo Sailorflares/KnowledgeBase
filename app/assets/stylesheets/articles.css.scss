@@ -17,8 +17,37 @@
   font: 10px sans-serif;
 }
 
+
+p#current-selection{
+	text-align: center;
+	font-family: 'Crayon';
+	color: white;
+	font-size: 40px;
+	margin-left: 10%;
+	margin-right: 10%;
+	position: relative;
+}
+
+
 .link {
   fill: none;
   stroke: #ccc;
   stroke-width: 1.5px;
 }
+
+ div#chalkboard{
+ 	background-image: image-url("blackboard.png");
+ 	background-size: 100%, 50%;
+ 	height: 513px;
+ 	background-repeat: none;
+ }
+
+ button#topic-submit{
+ 	display: inline-block;
+ 	font-family: 'Crayon';
+ 	
+ }
+
+/* div#learn-about{
+ 	font-family: 'Crayon';
+ }*/

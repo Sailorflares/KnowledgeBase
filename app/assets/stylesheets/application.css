@@ -13,3 +13,15 @@
  *= require_tree .
  *= require_self
  */
+
+
+ img#logo-img {
+ 	margin-top: 5px;
+ 	margin-bottom: 5px;
+ 	margin-left: 20px
+ }
+
+@font-face {
+    font-family: 'Crayon';
+    src: url('crayon.ttf')  format('truetype');
+}

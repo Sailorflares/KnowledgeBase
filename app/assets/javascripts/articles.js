@@ -17,9 +17,9 @@ $(document).ready(function(){
 		
 
 
-	var margin = {top: 20, right: 120, bottom: 20, left: 120},
+	var margin = {top: 0, right: 0, bottom: 0, left: 70},
     width = 960 - margin.right - margin.left,
-    height = 800 - margin.top - margin.bottom;
+    height = 630 - margin.top - margin.bottom;
     
 	var i = 0,
 	    duration = 750,
@@ -162,7 +162,9 @@ $(document).ready(function(){
 	// Watch for clicks on nodes to populate div
 
 	$("svg").on("click", "g.node", function(){
-		$("div#clicked-node").html($(this).children().last().text())
+		$("div#clicked-node").hide("fold").delay(1000)
+		$("div#clicked-node").html('<p id="current-selection">' + $(this).children().last().text()+ '</p>')
+		$("div#clicked-node").show("fold")
 		$(this).children().first().attr("r", "7")
 		$(this).children().first().attr("style", "fill: RGB(255, 204, 0);")
 	})

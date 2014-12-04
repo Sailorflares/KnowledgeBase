@@ -1,6 +1,6 @@
 var data2 = 
 {
-    "name": "Select Topic",
+    "name": "Topics",
     "children": 
     [   
         {
