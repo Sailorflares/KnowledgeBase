@@ -1,19 +1,6 @@
 <h1><%=@topic%></h1>
-
-<h2>NPR Results</h2>
 <div class="stories">
-  <% NprApi.new(@topic).stories_array.each do |story| %>
-    <div class="panel panel-info">
-      <div class="panel-heading">
-        <h3 class="panel-title">
-          <a href="<%=story["link"].first["$text"]%>">  
-            <%=story["title"]["$text"]%>    
-          </a>
-        </h3>
-      </div>
-      <div class="panel-body">
-        Panel content
-      </div>
-    </div>
+  <% @NPR_array.stories_array.each do |story| %>
+    <%= render partial: 'topics/story', :locals => {:story => story} %>  
   <% end %>
 </div>

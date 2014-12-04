@@ -1,0 +1,14 @@
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title">
+      <a href="<%=story["link"].first["$text"]%>">  
+        <%=story["title"]["$text"]%>    
+      </a>
+    </h3>
+  </div>
+  <div class="panel-body">
+      <% unless story["thumbnail"].nil? %>
+        <img src="<%=story["thumbnail"]["large"]["$text"]%>" alt="<%=story["title"]%>">
+      <% end %> 
+  </div>
+</div>
