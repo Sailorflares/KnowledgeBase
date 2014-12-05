@@ -162,20 +162,23 @@ $(document).ready(function(){
 	// Watch for clicks on nodes to populate div
 
 	$("svg").on("click", "g.node", function(){
-		$("p#learn-about").hide("fold")
-		$("ul.current-selection").append('<li>' + $(this).children().last().text()+ '</li>')
+		// $("p#learn-about").hide("fold")
+		$("span#current-topic").html($(this).children().last().text())
 		
-		var new_li = $("ul.current-selection li").last()
-		new_li.hide();
-		new_li.slideDown();
+		// var new_li = $("ul.current-selection li").last()
+		// new_li.hide();
+		// new_li.slideDown();
 		$(this).children().first().attr("r", "7")
 		$(this).children().first().attr("style", "fill: RGB(255, 204, 0);")
 	})
 
 	//watch for click on the submit to send request to topics controller
 
-	$("button#topic-submit").click(function(){
-		url = $(this).attr("href") + $("ul.current-selection li").last().text().toLowerCase()
+	$("button#topic-submit").click(function(e){
+		e.preventDefault();
+
+		url = $(this).attr("href") + $("span#current-topic").text().toLowerCase()
+		debugger
 		$(location).attr('href',url);
 	})
 

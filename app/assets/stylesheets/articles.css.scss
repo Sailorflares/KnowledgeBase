@@ -18,16 +18,6 @@
 }
 
 
-p#current-selection{
-	text-align: center;
-	font-family: 'Crayon';
-	color: black;
-	font-size: 40px;
-	margin-left: 10%;
-	margin-right: 10%;
-	position: relative;
-}
-
 
 .link {
   fill: none;
@@ -35,18 +25,6 @@ p#current-selection{
   stroke-width: 1.5px;
 }
 
- div#chalkboard{
- 	background-size: 100%, 50%;
- 	height: 513px;
- 	background-repeat: none;
+ span#current-topic{
+  margin-right: 20px;
  }
-
- button#topic-submit{
- 	display: inline-block;
- 	font-family: 'Crayon';
- 	
- }
-
-/* div#learn-about{
- 	font-family: 'Crayon';
- }*/
