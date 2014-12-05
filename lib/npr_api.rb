@@ -12,10 +12,11 @@ class NprApi
 
   def create_query_url(search_term)
     tag_array = Nori.new.parse(Nokogiri::XML(open("http://api.npr.org/list?id=3024")).to_xml)["list"]["item"]
-    tag_index = tag_array.index{ |hash| hash["title"] == search_term.capitalize} #do a regex search 
+    match = "/.*#{search_term}.*/i"
+    tag_index = tag_array.index{ |hash| hash["title"].match( Regexp.new(".*#{search_term}.*", true) ) } 
     if tag_index
-      tag_id = tag_array[tag_index]["id"]
-      return "http://api.npr.org/query?output=JSON&id=#{tag_id}&apiKey=#{ENV['NPR_KEY']}"  
+      tag_id = tag_array[tag_index]["@id"].to_i
+      return "http://api.npr.org/query?output=JSON&id=#{tag_id}&apiKey=#{ENV['NPR_KEY']}" 
     else
       return "http://api.npr.org/query?output=JSON&searchTerm=#{search_term}&apiKey=#{ENV['NPR_KEY']}"
     end
@@ -27,14 +28,6 @@ class NprApi
 
   def stories_array
     get_json["list"]["story"]
-  end
-
-  def links_array
-    array = []
-    get_json["list"]["story"].each do |story_hash|
-      array << story_hash["link"].first["$text"]
-    end
-    return array
   end
   
 end
