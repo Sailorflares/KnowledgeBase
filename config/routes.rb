@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   root 'articles#show'
   post 'wiki_scrape' => 'articles#wiki_scrape'
 
-  get '/topic', to: 'topics#show'  
+  get '/topic', to: 'topics#show'
+  get '/user', to: 'users#show'  
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
