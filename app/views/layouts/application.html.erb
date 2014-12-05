@@ -12,18 +12,22 @@
 		<nav class="navbar navbar-default" role="navigation">
 		  <div class="container-fluid">
 		    <div class="navbar-header">
-		      <%= image_tag("logo.png", height: '40', width: '225', id:"logo-img") %>
+		      <%= link_to image_tag("logo.png", height: '40', width: '225', id:"logo-img"), root_path %>
 		    </div>
 
         <form class="navbar-form navbar-right" role="search">
-          <span id="current-topic"> Click on a topic below </span>
+          <input type="text" id="current-topic" placeholder="Choose a topic below or type one in" class="form-control">
           <button id="topic-submit" class="btn btn-default" href='/topic?topic='>Learn More About This Topic</button>
         </form>
 		  </div>
 		</nav>
 
   <div class="container">
-    <%= yield %>
+    <div class="row" id="error-message">
+    </div>
+    <div id="yielded-content">
+      <%= yield %>
+    </div>
   </div>
 
 </body>
