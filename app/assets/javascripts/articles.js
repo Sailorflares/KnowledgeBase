@@ -162,9 +162,12 @@ $(document).ready(function(){
 	// Watch for clicks on nodes to populate div
 
 	$("svg").on("click", "g.node", function(){
-		$("div#clicked-node").hide("fold").delay(1000)
-		$("div#clicked-node").html('<p id="current-selection">' + $(this).children().last().text()+ '</p>')
-		$("div#clicked-node").show("fold")
+		$("p#learn-about").hide("fold")
+		$("ul.current-selection").append('<li>' + $(this).children().last().text()+ '</li>')
+		
+		var new_li = $("ul.current-selection li").last()
+		new_li.hide();
+		new_li.slideDown();
 		$(this).children().first().attr("r", "7")
 		$(this).children().first().attr("style", "fill: RGB(255, 204, 0);")
 	})
@@ -172,7 +175,7 @@ $(document).ready(function(){
 	//watch for click on the submit to send request to topics controller
 
 	$("button#topic-submit").click(function(){
-		url = $(this).attr("href") + $("div#clicked-node").text().toLowerCase()
+		url = $(this).attr("href") + $("ul.current-selection li").last().text().toLowerCase()
 		$(location).attr('href',url);
 	})
 

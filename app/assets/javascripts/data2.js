@@ -1,4 +1,6 @@
-var data2 = 
+var data2;
+
+data2=
 {
     "name": "Topics",
     "children": 
@@ -833,4 +835,4 @@ var data2 =
             ]
         },                                   
     ]       
-}  
+};
