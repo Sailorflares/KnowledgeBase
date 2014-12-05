@@ -45,6 +45,7 @@ gem 'figaro'
 group :development do
   gem "better_errors"
 end
+gem 'jquery-turbolinks'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

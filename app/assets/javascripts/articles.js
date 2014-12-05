@@ -1,5 +1,7 @@
+"use strict";
+
 $(document).ready(function(){
-	
+	$("div.loader4").hide()
 	$("#article-topic").submit(function(event){
 		event.preventDefault()
 		
@@ -162,12 +164,8 @@ $(document).ready(function(){
 	// Watch for clicks on nodes to populate div
 
 	$("svg").on("click", "g.node", function(){
-		// $("p#learn-about").hide("fold")
-		$("span#current-topic").html($(this).children().last().text())
-		
-		// var new_li = $("ul.current-selection li").last()
-		// new_li.hide();
-		// new_li.slideDown();
+		$('div#error-message').hide("fold")
+		$("input#current-topic").val($(this).children().last().text())		
 		$(this).children().first().attr("r", "7")
 		$(this).children().first().attr("style", "fill: RGB(255, 204, 0);")
 	})
@@ -176,10 +174,19 @@ $(document).ready(function(){
 
 	$("button#topic-submit").click(function(e){
 		e.preventDefault();
-
-		url = $(this).attr("href") + $("span#current-topic").text().toLowerCase()
-		debugger
-		$(location).attr('href',url);
+		if ($("input#current-topic").val() === ""){
+			$('div#error-message').hide();
+			$('div#error-message').html('<div class="alert alert-danger" role="alert">You must either click or type in a value to search</div>')
+			$('div#error-message').show("fold")
+		} else {
+			var url;
+			url = $(this).attr("href") + $("input#current-topic").val().toLowerCase()
+			$(location).attr('href',url);
+			$("div#chart-div").hide()
+			$(".stories").hide()
+			$("div.loader4").show()
+		}
+		
 	})
 
 })
