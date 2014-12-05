@@ -16,7 +16,7 @@ class TopicsController < ApplicationController
         "img_src" => (story["image"].nil? ? "http://www.niemanlab.org/images/iheartnpr_web_250x250_stacked.jpg" : story["image"].first["src"] )
       }
     end
-    @stories_array = nyt_array + npr_array
+    @stories_array = npr_array + nyt_array
   end
   
 end
