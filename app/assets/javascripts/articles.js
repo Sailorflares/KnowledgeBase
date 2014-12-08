@@ -21,7 +21,7 @@ $(document).ready(function(){
 
 	var margin = {top: 0, right: 0, bottom: 0, left: 70},
     width = 960 - margin.right - margin.left,
-    height = 630 - margin.top - margin.bottom;
+    height = 600 - margin.top - margin.bottom;
     
 	var i = 0,
 	    duration = 750,
@@ -183,6 +183,7 @@ $(document).ready(function(){
 			url = $(this).attr("href") + $("input#current-topic").val().toLowerCase()
 			$(location).attr('href',url);
 			$("div#chart-div").hide()
+			$("div#about-div").hide()
 			$(".stories").hide()
 			$("div.loader4").show()
 		}

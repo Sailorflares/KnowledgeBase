@@ -25,3 +25,31 @@
     font-family: 'Crayon';
     src: url('crayon.ttf')  format('truetype');
 }
+
+
+div.footer{
+	background-color: RGB(248, 248, 248);	
+	height: 45px;
+	position: absolute;
+	width: 100%
+}
+
+div.main-content{
+	background-color: white;
+}
+
+div#yielded-content{
+	min-height: 550px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
