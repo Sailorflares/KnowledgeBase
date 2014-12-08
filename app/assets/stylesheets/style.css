@@ -1,5 +1,11 @@
+div.panel-heading{
+	background-color: RGBA(128, 185, 74, .3);
+	color: black;
+}
 
-
+div.panel-info{
+	border-color: RGB(128, 185, 74);
+}
 
 
 

@@ -42,7 +42,14 @@ div#yielded-content{
 	min-height: 550px;
 }
 
+div.panel-heading{
+	background-color: RGBA(128, 185, 74, .3) !important;
+	color: black !important;
+}
 
+div.panel-info{
+	border-color: RGB(128, 185, 74);
+}
 
 
 
