@@ -18,7 +18,8 @@ class TopicsController < ApplicationController
       }
     end
     amazon_array = AmazonScraper.new(@topic).attributes_hash
-    @stories_array = (npr_array + nyt_array + amazon_array).shuffle
+    coursera_array = CourseraApi.new(@topic).courses_array
+    @stories_array = (npr_array + nyt_array + amazon_array + coursera_array).shuffle
   end
   
 end

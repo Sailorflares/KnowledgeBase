@@ -1,1 +1,1 @@
-<%=@amazon.attributes_hash%>
+<%= AmazonScraper.new("dog").doc.css('#s-results-list-atf')[0].children.first%>
