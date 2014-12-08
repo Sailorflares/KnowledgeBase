@@ -27,3 +27,15 @@
     </div>
   </div>
 </div>
+
+<script type="text/javascript">
+  $( document ).ready(function() {
+    $(".up-btn").click(function(e) {
+      console.log("Clicked UP");
+      $.ajax({type: 'POST', url:'/relevant', data:{title: $(this).title}}).done(function(data){
+        console.log($(this).attr("title"))
+        console.log($(this))
+      });
+    });
+  });
+</script>
