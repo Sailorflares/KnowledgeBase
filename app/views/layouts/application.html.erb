@@ -22,13 +22,55 @@
 		  </div>
 		</nav>
 
-  <div class="container">
+  <div class="container main-content">
     <div class="row" id="error-message">
     </div>
     <div id="yielded-content">
       <%= yield %>
     </div>
-  </div>
+  </div> 
+
+  <div class="footer-text">
+      <div class="footer-text-left">
+        <div class="menu">
+          <ul>
+            <li>
+              <%= link_to "About KnowledgeBase", staticpages_about_path %>
+            </li>
+            <li>
+              <a href="https://twitter.com/flatironschool">
+                <i class="icon-twitter icon-2x"></i>
+              </a>
+            </li>
+            <li>
+              <a href="http://www.facebook.com/FlatironSchool">
+                <i class="icon-facebook-sign icon-2x"></i>
+              </a>
+            </li>
+            <li>
+              <a href="http://instagram.com/flatironschool">
+                <i class="icon-camera-retro icon-2x"></i>
+              </a>
+            </li>
+            <li>
+              <a href="http://www.linkedin.com/company/the-flatiron-school">
+                <i class="icon-linkedin-sign icon-2x"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/flatiron-school">
+                <i class="icon-github-alt icon-2x"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-text-right">
+        <div class="copyright">Made with ♥ @ The Flatiron School by <%= link_to "Karim Butt", "https://twitter.com/karimbutt", target:"_blank" %> & <%= link_to "Elizabeth Wolensky", "https://twitter.com/sailor_flares", target:"_blank" %></a></div>
+      </div>
+      <div class="clear"></div>
+    </div>   
+  
 
 </body>
 </html>

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  get 'staticpages/about'
+
   root 'articles#show'
   post 'wiki_scrape' => 'articles#wiki_scrape'
 
