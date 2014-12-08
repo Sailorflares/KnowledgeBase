@@ -7,6 +7,12 @@
     </h3>
   </div>
   <div class="panel-body">
-    <img src="<%=story["img_src"]%>" alt="<%=story["title"]%>">
+    <div class="image">
+      <img src="<%=story["img_src"]%>" alt="<%=story["title"]%>">
+    </div>
+    <div class="btn-group" role="group">
+      <%= submit_tag "UP", :class => "btn btn-default up-btn" %>
+      <%= submit_tag "DOWN", :class => "btn btn-default down-btn" %>
+    </div>
   </div>
 </div>

@@ -12,7 +12,6 @@ class NprApi
 
   def create_query_url(search_term)
     tag_array = Nori.new.parse(Nokogiri::XML(open("http://api.npr.org/list?id=3024")).to_xml)["list"]["item"]
-    match = "/.*#{search_term}.*/i"
     tag_index = tag_array.index{ |hash| hash["title"].match( Regexp.new(".*#{search_term}.*", true) ) } 
     if tag_index
       tag_id = tag_array[tag_index]["@id"].to_i
