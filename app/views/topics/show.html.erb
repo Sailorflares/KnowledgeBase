@@ -1,4 +1,4 @@
-<h1 class="stories"><%=@topic.gsub("%20", " ").titleize %></h1>
+<h1><%=@topic.gsub("%20", " ").titleize %></h1>
 <div class="stories">
   <% @stories_array.each do |story| %>
     <%= render partial: 'topics/story', :locals => {:story => story} %>  
@@ -29,13 +29,16 @@
 </div>
 
 <script type="text/javascript">
-  $( document ).ready(function() {
-    $(".up-btn").click(function(e) {
-      console.log("Clicked UP");
-      $.ajax({type: 'POST', url:'/relevant', data:{title: $(this).title}}).done(function(data){
-        console.log($(this).attr("title"))
-        console.log($(this))
-      });
-    });
-  });
+ $( document ).ready(function() {
+   $(".up-btn").click(function(e) {
+       var train = $(this).attr("train");
+       $.ajax({
+         type: 'POST', 
+         url:'/relevant', 
+         data:{title: train}
+       }).done(function(data){
+         console.log("hello");
+       });
+     });
+   });
 </script>
