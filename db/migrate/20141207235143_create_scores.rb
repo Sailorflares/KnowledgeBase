@@ -4,6 +4,7 @@ class CreateScores < ActiveRecord::Migration
       t.string :category
       t.string :topic
       t.string :word
+      t.integer :count, :default => 0
 
       t.timestamps
     end
