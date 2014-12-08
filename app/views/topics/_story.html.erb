@@ -11,8 +11,8 @@
       <img src="<%=story["img_src"]%>" alt="<%=story["title"]%>">
     </div>
     <div class="btn-group" role="group">
-      <%= submit_tag "UP", :class => "btn btn-default up-btn", :train => "#{story['title']}" %>
-      <%= submit_tag "DOWN", :class => "btn btn-default down-btn" %>
+      <%= submit_tag "UP", :class => "btn btn-default up-btn", :train => "#{story['title']}", :topic => "#{@topic}" %>
+      <%= submit_tag "DOWN", :class => "btn btn-default down-btn", :train => "#{story['title']}", :topic => "#{@topic}" %>
     </div>
   </div>
 </div>
