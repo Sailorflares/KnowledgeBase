@@ -10,7 +10,7 @@ class AmazonScraper
     @doc = Nokogiri::HTML(open(@url))
   end
 
-  def attributes_hash
+  def attributes_array
     @doc.css('#s-results-list-atf')[0].children.collect do |result|
       unless (result.css('img.s-access-image')).empty?
         hash = {}
