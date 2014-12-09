@@ -21,7 +21,7 @@ $(document).ready(function(){
 
 	var margin = {top: 0, right: 0, bottom: 0, left: 70},
     width = 960 - margin.right - margin.left,
-    height = 800 - margin.top - margin.bottom;
+    height = 785 - margin.top - margin.bottom;
     
 	var i = 0,
 	    duration = 750,
