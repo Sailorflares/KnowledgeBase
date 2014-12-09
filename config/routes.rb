@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get '/topic', to: 'topics#show'
   get '/user', to: 'users#show'  
 
+  post '/relevant', to: 'scores#train_relevant'
+  post '/irrelevant', to: 'scores#train_irrelevant'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
