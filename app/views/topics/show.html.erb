@@ -1,5 +1,4 @@
 <h1><%=@topic.gsub("%20", " ").titleize %></h1>
-<%=@coursera_array%>
 <div class="stories">
   <% @stories_array.each do |story| %>
     <%= render partial: 'topics/story', :locals => {:story => story} %>  

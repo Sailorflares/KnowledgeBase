@@ -35,6 +35,6 @@ class Score < ActiveRecord::Base
 
   def self.show?(topic, text)
     training_count = Score.where(topic: topic).sum("count")
-    return (classify(topic, text) == "relevant" || training_count < 5)
+    return (classify(topic, text) == "relevant" || training_count < 50)
   end
 end

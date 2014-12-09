@@ -13,11 +13,12 @@ class AmazonScraper
   def attributes_array
     @doc.css('#s-results-list-atf')[0].children.collect do |result|
       unless (result.css('img.s-access-image')).empty?
-        hash = {}
-        hash["img_src"] = result.css('img.s-access-image').attribute("src").value
-        hash["link"] = result.css('a.a-link-normal').attribute("href").value
-        hash["title"] = result.css('a.a-link-normal')[1].attribute("title").value
-        hash
+        hash = {
+          "img_src" => result.css('img.s-access-image').attribute("src").value,
+          "link" => result.css('a.a-link-normal').attribute("href").value,
+          "title" => result.css('a.a-link-normal')[1].attribute("title").value
+        }
+        Score.show?(@topic, hash["title"]) ? hash : nil
       end
     end.compact
   end

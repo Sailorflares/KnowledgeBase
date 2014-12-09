@@ -12,14 +12,16 @@ class CourseraApi
     return_array = []
     courses_array.collect do |hash|
       if hash["name"].match( Regexp.new(".*#{@search_term}.*", true) )
-        attributes_hash = {}
-        attributes_hash["title"] = hash["name"]
-        attributes_hash["link"] = "https://www.coursera.org/course/#{hash["shortName"]}"
-        attributes_hash["img_src"] = "http://everyoneon.org/wp-content/uploads/2014/06/cropped-coursera_logo.png"
-        return_array << attributes_hash
+        a_hash = {
+          "title" => hash["name"],
+          "link" => "https://www.coursera.org/course/#{hash["shortName"]}",
+          "img_src" => "http://everyoneon.org/wp-content/uploads/2014/06/cropped-coursera_logo.png"
+        }
+        
+        return_array << a_hash if Score.show?(@topic, a_hash["title"])
       end
     end
-    return return_array  
+    return return_array.compact  
   end
 
 end
