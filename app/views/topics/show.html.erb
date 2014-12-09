@@ -1,4 +1,5 @@
 <h1><%=@topic.gsub("%20", " ").titleize %></h1>
+<%=@coursera_array%>
 <div class="stories">
   <% @stories_array.each do |story| %>
     <%= render partial: 'topics/story', :locals => {:story => story} %>  
@@ -40,9 +41,11 @@
           train: train,
           topic: topic
          }
-       }).done(function(data){
-         console.log("hello");
        });
+       console.log("upvote");
+       $(this).css('background-color', 'thistle');
+       debugger;
+       $(this).siblings()[0].remove();
      });
 
    $(".down-btn").click(function(e) {
@@ -55,9 +58,9 @@
           train: train,
           topic: topic
          }
-       }).done(function(data){
-         console.log("downvote");
        });
+       console.log("downvote");
+       $(this).closest(".panel").remove();
      });
    });
 </script>

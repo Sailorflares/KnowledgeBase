@@ -32,4 +32,9 @@ class Score < ActiveRecord::Base
       score.save
     end
   end
+
+  def self.show?(topic, text)
+    training_count = Score.where(topic: topic).sum("count")
+    return (classify(topic, text) == "relevant" || training_count < 5)
+  end
 end
