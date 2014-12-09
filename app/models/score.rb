@@ -19,7 +19,7 @@ class Score < ActiveRecord::Base
       end
       c = Score.where(topic: topic, category: category)
       c.size > 0 ? s = c.sum("count") : s = 0.1
-      score[category] += Math.log(s / training_count)
+      score[category] += Math.log(s/training_count)
     end
     return score
 
