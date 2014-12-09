@@ -1,4 +1,4 @@
-<div class="panel panel-info">
+<div class="panel panel-info" style="box-shadow: 2px 2px RGBA(0,0,0, 0.22); border-radius: 6px">
   <div class="panel-heading">
     <h3 class="panel-title">
       <a href="<%=story["link"]%>">  
@@ -14,8 +14,12 @@
   <div class="panel-heading">
     <div class="panel-title center-block">
       <div class="btn-group" role="group">
-        <%= submit_tag "UP", :class => "btn btn-default up-btn greenbtn", :train => "#{story['title']}", :topic => "#{@topic}" %>
-        <%= submit_tag "DOWN", :class => "btn btn-default down-btn greenbtn", :train => "#{story['title']}", :topic => "#{@topic}" %>
+        <button type="button" class="btn btn-default up-btn greenbtn" train="<%=story['title']%>" topic="<%=@topic%>">
+          <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+        </button>
+        <button type="button" class="btn btn-default down-btn greenbtn" train="<%=story['title']%>" topic="<%=@topic%>">
+          <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+        </button>
       </div>
     </div>   
   </div>
