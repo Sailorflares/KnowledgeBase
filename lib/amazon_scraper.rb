@@ -18,6 +18,7 @@ class AmazonScraper
           "link" => result.css('a.a-link-normal').attribute("href").value,
           "title" => result.css('a.a-link-normal')[1].attribute("title").value
         }
+        #Nokogiri::XML(open(hash["link"]))
         Score.show?(@topic, hash["title"]) ? hash : nil
       end
     end.compact
