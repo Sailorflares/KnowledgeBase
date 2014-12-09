@@ -67,7 +67,7 @@ $(document).ready(function(){
 	      links = tree.links(nodes);
 
 	  // Normalize for fixed-depth.
-	  nodes.forEach(function(d) { d.y = d.depth * 180; });
+	  nodes.forEach(function(d) { d.y = d.depth * 200; });
 
 	  // Update the nodes…
 	  var node = svg.selectAll("g.node")
@@ -81,12 +81,12 @@ $(document).ready(function(){
 
 	  nodeEnter.append("circle")
 	      .attr("r", 1e-6)
-	      .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
+	      .style("fill", function(d) { return d._children ? "#80B94A" : "#80B94A"; });
 
 	  nodeEnter.append("text")
 	      .attr("x", function(d) { return d.children || d._children ? -10 : 10; })
 	      .attr("dy", ".35em")
-	      .attr("style", "font-size:12px")
+	      .attr("style", "font-size:12px; font-weight: bold;")
 	      .attr("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
 	      .text(function(d) { return d.name; })
 	      .style("fill-opacity", 1e-6);
@@ -99,7 +99,7 @@ $(document).ready(function(){
 
 	  nodeUpdate.select("circle")
 	      .attr("r", 4.5)
-	      .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
+	      .style("fill", function(d) { return d._children ? "#80B94A" : "#80B94A"; });
 
 	  nodeUpdate.select("text")
 	      .style("fill-opacity", 1);
