@@ -21,7 +21,7 @@ $(document).ready(function(){
 
 	var margin = {top: 0, right: 0, bottom: 0, left: 70},
     width = 960 - margin.right - margin.left,
-    height = 600 - margin.top - margin.bottom;
+    height = 785 - margin.top - margin.bottom;
     
 	var i = 0,
 	    duration = 750,
@@ -86,6 +86,7 @@ $(document).ready(function(){
 	  nodeEnter.append("text")
 	      .attr("x", function(d) { return d.children || d._children ? -10 : 10; })
 	      .attr("dy", ".35em")
+	      .attr("style", "font-size:12px")
 	      .attr("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
 	      .text(function(d) { return d.name; })
 	      .style("fill-opacity", 1e-6);
@@ -168,6 +169,12 @@ $(document).ready(function(){
 		$("input#current-topic").val($(this).children().last().text())		
 		$(this).children().first().attr("r", "7")
 		$(this).children().first().attr("style", "fill: RGB(255, 204, 0);")
+	})
+
+	$("svg").on("click", "text", function(event){
+		event.stopPropagation();
+		$("input#current-topic").val($(this).html())
+		$("button#topic-submit").click()
 	})
 
 	//watch for click on the submit to send request to topics controller

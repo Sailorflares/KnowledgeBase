@@ -7,6 +7,14 @@ div.panel-info{
 	border-color: RGB(128, 185, 74);
 }
 
+div#chart{
+    min-height: 86vh;
+}
+
+div#for_height{
+    min-height: 86vh;
+}
+
 
 
 /* ===[ Footer Styles ]===================================================== */
