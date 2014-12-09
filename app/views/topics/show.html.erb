@@ -41,9 +41,11 @@
           train: train,
           topic: topic
          }
-       }).done(function(data){
-         console.log("hello");
        });
+       console.log("upvote");
+       $(this).css('background-color', 'thistle');
+       debugger;
+       $(this).siblings()[0].remove();
      });
 
    $(".down-btn").click(function(e) {
