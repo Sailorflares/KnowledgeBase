@@ -7,7 +7,7 @@ class TopicsController < ApplicationController
       hash = {
         "title" => story["headline"]["main"],
         "link" => story["web_url"],
-        "img_src" => (story["multimedia"].first.nil? ? "http://www.consciouscoffees.com/joomla1/images/stories/nyt-logo.png" : "http://static01.nyt.com/" + story["multimedia"].first["url"] )
+        "img_src" => (story["multimedia"].first.nil? || story["multimedia"][1].nil? ? "http://www.consciouscoffees.com/joomla1/images/stories/nyt-logo.png" : "http://static01.nyt.com/" + story["multimedia"][1]["url"] )
       }
       Score.show?(@topic, hash["title"]) ? hash : nil
     end.compact
@@ -15,7 +15,7 @@ class TopicsController < ApplicationController
       hash = {
         "title" => story["title"]["$text"],
         "link" => story["link"].first["$text"],
-        "img_src" => (story["image"].nil? ? "http://www.niemanlab.org/images/iheartnpr_web_250x250_stacked.jpg" : story["image"].first["src"] )
+        "img_src" => (story["image"].nil? ? "http://www.niemanlab.org/images/iheartnpr_web_250x250_stacked.jpg" : story["image"].first["crop"].first["src"] )
       }
       Score.show?(@topic, hash["title"]) ? hash : nil
     end.compact

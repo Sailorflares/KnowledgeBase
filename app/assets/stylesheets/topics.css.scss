@@ -15,3 +15,14 @@
 .greenbtn{
   background-color: RGBA(128, 185, 74, .3);
 }
+
+.panel-extras {
+  width: 100%;
+  padding: 0;
+}
+
+.image-fit {
+  max-width: 100%;
+  max-height: 100%;
+  padding: none;
+}

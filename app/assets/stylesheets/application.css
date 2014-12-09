@@ -51,6 +51,9 @@ div.panel-info{
 	border-color: RGB(128, 185, 74);
 }
 
+.stories .panel-body{
+	padding: 0;
+}
 
 
 
