@@ -6,7 +6,7 @@ data2=
     "children": 
     [   
         {
-            "name": "Culture & the Arts",
+            "name": "Culture and the Arts",
             "children": 
             [
               {
