@@ -57,7 +57,8 @@
           topic: topic
          }
        });
-       $(this).parent("panel").remove();
+       console.log("downvote");
+       $(this).closest(".panel").remove();
      });
    });
 </script>
