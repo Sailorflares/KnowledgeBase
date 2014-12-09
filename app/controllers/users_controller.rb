@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
   def show
-    @amazon = AmazonScraper.new("evolution")
+    @coursera_array = CourseraApi.new("law").courses_array
   end
 end

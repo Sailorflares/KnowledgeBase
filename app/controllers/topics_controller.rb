@@ -17,7 +17,7 @@ class TopicsController < ApplicationController
         "img_src" => (story["image"].nil? ? "http://www.niemanlab.org/images/iheartnpr_web_250x250_stacked.jpg" : story["image"].first["src"] )
       }
     end
-    amazon_array = AmazonScraper.new(@topic).attributes_hash
+    amazon_array = AmazonScraper.new(@topic).attributes_array
     coursera_array = CourseraApi.new(@topic).courses_array
     @stories_array = (npr_array + nyt_array + amazon_array + coursera_array).shuffle
   end
