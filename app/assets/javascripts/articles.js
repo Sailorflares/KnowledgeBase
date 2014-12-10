@@ -193,6 +193,7 @@ $(document).ready(function(){
 			$("div#about-div").hide()
 			$(".stories").hide()
 			$("div.loader4").show()
+			$("h1.topic-title").hide()
 		}
 		
 	})
