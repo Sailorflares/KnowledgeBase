@@ -6,11 +6,18 @@ class TopicsController < ApplicationController
     nyt_array = NytApi.new(@topic).stories_array.collect do |story|
       hash = {
         "title" => story["headline"]["main"],
-        "link" => story["web_url"],
-        "img_src" => (story["multimedia"].first.nil? || story["multimedia"][1].nil? ? "http://www.consciouscoffees.com/joomla1/images/stories/nyt-logo.png" : "http://static01.nyt.com/" + story["multimedia"][1]["url"] )
+        "link" => story["web_url"]
       }
+      if story["multimedia"].first.nil?
+        hash["img_src"] = "http://www.consciouscoffees.com/joomla1/images/stories/nyt-logo.png"
+      elsif story["multimedia"].size == 1
+        hash["img_src"] = "http://static01.nyt.com/" + story["multimedia"][0]["url"]
+      else
+        hash["img_src"] = "http://static01.nyt.com/" + story["multimedia"][1]["url"]
+      end
       Score.show?(@topic, hash["title"]) ? hash : nil
     end.compact
+
     npr_array = NprApi.new(@topic).stories_array.collect do |story|
       hash = {
         "title" => story["title"]["$text"],
@@ -19,6 +26,7 @@ class TopicsController < ApplicationController
       }
       Score.show?(@topic, hash["title"]) ? hash : nil
     end.compact
+
     amazon_array = AmazonScraper.new(@topic).attributes_array
     coursera_array = CourseraApi.new(@topic).courses_array
     @stories_array = (npr_array + nyt_array + amazon_array + coursera_array)
