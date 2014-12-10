@@ -1,12 +1,3 @@
-div.panel-heading{
-	background-color: RGBA(128, 185, 74, .3);
-	color: black;
-}
-
-div.panel-info{
-	border-color: RGB(128, 185, 74);
-}
-
 div#chart{
     min-height: 86vh;
 }
@@ -14,7 +5,6 @@ div#chart{
 div#for_height{
     min-height: 86vh;
 }
-
 
 button#topic-submit{
     background-color: RGBA(128, 185, 74, .3);

@@ -17,28 +17,20 @@
   font: 10px sans-serif;
 }
 
-
-
 .link {
   fill: none;
   stroke: #ccc;
   stroke-width: 1.5px;
 }
 
- input#current-topic{
+input#current-topic{
   margin-right: 20px;
   width: 260px;
- }
+}
 
- div#error-message{
+div#error-message{
   color: red;
- }
-
-
-
-
-
-
+}
 
 @-webkit-keyframes rotate {
   0% {
@@ -54,6 +46,7 @@
             transform: rotate(360deg);
   }
 }
+
 @keyframes rotate {
   0% {
     -webkit-transform: rotate(0deg);
@@ -68,6 +61,7 @@
             transform: rotate(360deg);
   }
 }
+
 @-webkit-keyframes rotate2 {
   0% {
     -webkit-transform: rotate(0deg);
@@ -114,7 +108,7 @@ body {
 h1, h3 {
   display: block;
   margin: 0px auto;
-  text-align: center;
+  text-align: left;
   font-family: 'Tahoma';
   font-weight: lighter;
   color: rgba(0, 0, 0, 0.5);

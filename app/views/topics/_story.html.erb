@@ -1,4 +1,4 @@
-<div class="panel panel-info" style="box-shadow: 2px 2px RGBA(0,0,0, 0.22); border-radius: 6px">
+<div class="panel panel-info">
   <div class="panel-heading">
     <h3 class="panel-title">
       <a href="<%=story["link"]%>">  
@@ -9,18 +9,18 @@
   <div class="panel-body panel-extras">
     <div class="image">
       <img class="center-block image-fit" src="<%=story["img_src"]%>" alt="<%=story["title"]%>">
+      <button type="button"
+              class="btn btn-default btn-up"
+              train="<%=story['title']%>"
+              topic="<%=@topic%>">
+        <span class="glyphicon glyphicon-ok"></span><span class="btn-text">Apt</span>
+      </button>
+      <button type="button"
+              class="btn btn-default btn-down"
+              train="<%=story['title']%>"
+              topic="<%=@topic%>">
+        <span class="glyphicon glyphicon-remove"></span><span class="btn-text">Off-topic</span>
+      </button>
     </div>
-  </div>
-  <div class="panel-heading">
-    <div class="panel-title center-block">
-      <div class="btn-group" role="group">
-        <button type="button" class="btn btn-default up-btn greenbtn" train="<%=story['title']%>" topic="<%=@topic%>">
-          <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-        </button>
-        <button type="button" class="btn btn-default down-btn greenbtn" train="<%=story['title']%>" topic="<%=@topic%>">
-          <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-        </button>
-      </div>
-    </div>   
   </div>
 </div>
