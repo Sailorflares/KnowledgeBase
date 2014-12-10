@@ -15,8 +15,9 @@ class TopicsController < ApplicationController
       else
         hash["img_src"] = "http://static01.nyt.com/" + story["multimedia"][1]["url"]
       end
-      Score.show?(@topic, hash["title"]) ? hash : nil
-    end.compact
+      #Score.show?(@topic, hash["title"]) ? hash : nil
+      hash
+    end#.compact
 
     npr_array = NprApi.new(@topic).stories_array.collect do |story|
       hash = {
@@ -24,12 +25,15 @@ class TopicsController < ApplicationController
         "link" => story["link"].first["$text"],
         "img_src" => (story["image"].nil? ? "http://www.niemanlab.org/images/iheartnpr_web_250x250_stacked.jpg" : story["image"].first["crop"].first["src"] )
       }
-      Score.show?(@topic, hash["title"]) ? hash : nil
-    end.compact
+      #Score.show?(@topic, hash["title"]) ? hash : nil
+    end#.compact
 
     amazon_array = AmazonScraper.new(@topic).attributes_array
     coursera_array = CourseraApi.new(@topic).courses_array
     @stories_array = (npr_array + nyt_array + amazon_array + coursera_array)
+    @stories_array = @stories_array.sort do |x,y|
+      Score.classifications(@topic,y['title'])['relevant'] <=> Score.classifications(@topic,x['title'])['relevant']
+    end
   end
   
 end

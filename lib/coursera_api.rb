@@ -17,8 +17,7 @@ class CourseraApi
           "link" => "https://www.coursera.org/course/#{hash["shortName"]}",
           "img_src" => "http://everyoneon.org/wp-content/uploads/2014/06/cropped-coursera_logo.png"
         }
-        
-        return_array << a_hash if Score.show?(@topic, a_hash["title"])
+        return_array << a_hash
       end
     end
     return return_array.compact  
