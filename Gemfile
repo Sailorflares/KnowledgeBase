@@ -42,6 +42,10 @@ gem "d3-rails"
 
 gem 'figaro'
 
+gem 'tzinfo-data'
+
+gem 'coffee-script-source', '1.8.0'
+
 group :development do
   gem "better_errors"
 end
@@ -61,5 +65,5 @@ gem 'rails_12factor', group: :production
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-ruby "2.1.2"
+ruby "2.1.5"
 

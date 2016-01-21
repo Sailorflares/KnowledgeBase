@@ -1,2 +1,0 @@
-class KnowledgeBasesClassifiersController < ApplicationController
-end

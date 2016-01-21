@@ -3,35 +3,21 @@ class TopicsController < ApplicationController
   def show
     @topic = params[:topic].gsub(" ", "%20")
 
-    nyt_array = NytApi.new(@topic).stories_array.collect do |story|
-      hash = {
-        "title" => story["headline"]["main"],
-        "link" => story["web_url"]
-      }
-      if story["multimedia"].first.nil?
-        hash["img_src"] = "http://www.consciouscoffees.com/joomla1/images/stories/nyt-logo.png"
-      elsif story["multimedia"].size == 1
-        hash["img_src"] = "http://static01.nyt.com/" + story["multimedia"][0]["url"]
-      else
-        hash["img_src"] = "http://static01.nyt.com/" + story["multimedia"][1]["url"]
-      end
-      #Score.show?(@topic, hash["title"]) ? hash : nil
-      hash
-    end#.compact
+    #still unable to determine why the services do not respond correctly when not instantiated in the TopicsController class. 
+    #Future fix - move topicStoriesHelper into a StoriesService
+    return topicStoriesHelper
+  end
 
-    npr_array = NprApi.new(@topic).stories_array.collect do |story|
-      hash = {
-        "title" => story["title"]["$text"],
-        "link" => story["link"].first["$text"],
-        "img_src" => (story["image"].nil? ? "http://www.niemanlab.org/images/iheartnpr_web_250x250_stacked.jpg" : story["image"].first["crop"].first["src"] )
-      }
-      #Score.show?(@topic, hash["title"]) ? hash : nil
-    end#.compact
+  def topicStoriesHelper
+    nyt_array = NytService.new(@topic).stories_array
+    npr_array = NprService.new(@topic).stories_array
+    amazon_array = AmazonService.new(@topic).attributes_array
+    coursera_array = CourseraService.new(@topic).courses_array
+    goodreads_array = GoodReadsService.new(@topic).books_array
 
-    amazon_array = AmazonScraper.new(@topic).attributes_array
-    coursera_array = CourseraApi.new(@topic).courses_array
-    @stories_array = (npr_array + nyt_array + amazon_array + coursera_array)
-    @stories_array = @stories_array.sort do |x,y|
+    stories_array = (npr_array + amazon_array + coursera_array + nyt_array + goodreads_array)
+
+    @stories_array = stories_array.sort do |x,y|
       Score.classifications(@topic,y['title'])['relevant'] <=> Score.classifications(@topic,x['title'])['relevant']
     end
   end
